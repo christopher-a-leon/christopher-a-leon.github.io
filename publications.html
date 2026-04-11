@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications | Christopher Leon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --sidebar-color: #2c3e50;
+            --accent-color: #3498db;
+            --card-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+            background: var(--bg-gradient);
+            color: #333;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            width: 300px;
+            background: var(--sidebar-color);
+            color: white;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 200px;
+            height: 250px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid rgba(255,255,255,0.2);
+        }
+
+        .sidebar h1 { font-size: 1.5rem; margin: 10px 0 5px 0; }
+        .sidebar p { font-size: 0.9rem; opacity: 0.8; margin-bottom: 25px; }
+
+        .social-links { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+        .social-links a {
+            color: white; text-decoration: none; font-size: 0.9rem; padding: 8px;
+            border-radius: 6px; background: rgba(255,255,255,0.1); transition: 0.3s;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        .social-links a:hover { background: var(--accent-color); }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 340px;
+            padding: 40px;
+            flex-grow: 1;
+            max-width: 800px;
+        }
+
+        nav { margin-bottom: 40px; display: flex; gap: 30px; }
+        nav a {
+            text-decoration: none; color: var(--sidebar-color); font-weight: 600;
+            font-size: 1.1rem; padding-bottom: 5px; border-bottom: 2px solid transparent; transition: 0.3s;
+        }
+        nav a:hover, nav a.active { border-bottom: 2px solid var(--accent-color); color: var(--accent-color); }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            backdrop-filter: blur(5px);
+            line-height: 1.7;
+        }
+
+        h2 { margin-top: 0; color: var(--sidebar-color); border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        
+        /* Publications List Styles */
+        .year-label {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin: 30px 0 10px 0;
+        }
+
+        .pub-list {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .pub-item {
+            margin-bottom: 18px;
+        }
+
+        .pub-title {
+            font-weight: 600;
+            color: var(--sidebar-color);
+            text-decoration: none;
+        }
+
+        .pub-title:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .pub-authors { font-size: 0.9rem; color: #444; }
+        .pub-venue { font-style: italic; font-size: 0.9rem; color: #666; }
+
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .sidebar { position: relative; width: 100%; height: auto; }
+            .main-content { margin-left: 0; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <img src="1000145441.jpg" alt="Profile" class="profile-pic">
+        <h1>Christopher Leon</h1>
+        <p>Staff Scientist<br>Los Alamos National Laboratory</p>
+        <div class="social-links">
+            <a href="https://scholar.google.com/citations?user=dfMIYSwAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+            <a href="https://orcid.org/0000-0002-9541-3013" target="_blank"><i class="fab fa-orcid"></i> ORCID</a>
+            <a href="https://github.com" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/christopher-leon-ph-d/" target="_blank">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="research.html">Research</a>
+            <a href="publications.html" class="active">Publications</a>
+        </nav>
+
+        <section class="card">
+            <h2>Publications</h2>
+
+            <div class="year-label">2025</div>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0375947425002295" class="pub-title" target="_blank">Possible universal limit for valence parton distributions</a><br>
+                    <span class="pub-authors">C. Leon, M. Sargsian</span><br>
+                    <span class="pub-venue">Nuclear Physics A 1064, 123243</span>
+                </li>
+                <li class="pub-item">
+                    <a href="https://journals.aps.org/prab/abstract/10.1103/2v1x-c97j" class="pub-title"> Using convolutional neural networks to accelerate three-dimensional coherent synchrotron radiation computations</a><br>
+                    <span class="pub-authors">C. Leon, P.M. Anisimov, N. Yampolsky, A. Scheinker</span><br>
+                    <span class="pub-venue">Physical Review Accelerators and Beams 28.11, 110701</span>
+                </li>
+                <li class="pub-item">
+                    <a href="https://proceedings.jacow.org/napac2025/doi/jacow-napac2025-mop065/" class="pub-title">Integrating simulation and machine learning for Proton Storage Ring beam analysis</a><br>
+                    <span class="pub-authors">E.-C. Huang, C. Leon, A. Scheinker, P.M. Anisimov</span><br>
+                    <span class="pub-venue">North American Particle Accelerator Conference (NAPAC2025)</span>
+                </li>
+                <li class="pub-item">
+                    <a href="https://proceedings.mlr.press/v283/williams25a.html" class="pub-title">QP Based Constrained Optimization for Reliable PINN Training</a><br>
+                    <span class="pub-authors">A. Williams, C. Leon, A. Scheinker</span><br>
+                    <span class="pub-venue">Proceedings of the 7th Annual Learning for Dynamics & Control Conference</span>
+                </li>
+            </ul>
+
+            <div class="year-label">2024</div>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <a href="https://www.nature.com/articles/s41598-024-65650-9" class="pub-title" target="_blank">Physics-constrained machine learning for electrodynamics without gauge ambiguity based on Fourier transformed Maxwell's equations</a><br>
+                    <span class="pub-authors">C. Leon, A. Scheinker</span><br>
+                    <span class="pub-venue">Scientific Reports 14 (1), 14809</span>
+                </li>
+                <li class="pub-item">
+                    <a href="https://pubs.aip.org/aip/pop/article/31/1/012101/2932188" class="pub-title" target="_blank">Solving the Orszag–Tang vortex magnetohydrodynamics problem with physics-constrained convolutional neural networks</a><br>
+                    <span class="pub-authors">A. Bormanis, C. Leon, A. Scheinker</span><br>
+                    <span class="pub-venue">Physics of Plasmas 31 (1)</span>
+                </li>
+                
+            </ul>
+
+            <div class="year-label">2022</div>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <a href="https://digitalcommons.fiu.edu/record/13868?ln=en&v=pdf" class="pub-title" target="_blank">The Valence Quark Structure of the Nucleon</a><br>
+                    <span class="pub-authors">C. Leon</span><br>
+                    <span class="pub-venue">Ph.D. Thesis</span>
+                </li>
+                
+                <li class="pub-item">
+                    <a href="https://link.springer.com/article/10.1140/epjc/s10052-022-10243-x" class="pub-title" target="_blank">Residual mean field model of valence quarks in the nucleon</a><br>
+                    <span class="pub-authors">C. Leon, M. Sargsian</span><br>
+                    <span class="pub-venue">The European Physical Journal C 82 (4), 309</span>
+                </li>
+            </ul>
+
+            <div class="year-label">2021</div>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <a href="https://journals.aps.org/prc/abstract/10.1103/PhysRevC.103.065203" class="pub-title" target="_blank">Constituent counting rule and photoproduction</a><br>
+                    <span class="pub-authors">T. Reed, C. Leon, F. Vera, L. Guo, B. Raue</span><br>
+                    <span class="pub-venue">Physical Review C 103 (6), 065203</span>
+                </li>
+                <li class="pub-item">
+                    <a href="https://www.mdpi.com/2624-8174/3/4/57" class="pub-title" target="_blank">A Novel Feature of Valence Quark Distributions in Hadrons</a><br>
+                    <span class="pub-authors">C. Leon, M.M. Sargsian, F. Vera</span><br>
+                    <span class="pub-venue">Physics 3 (4), 913-923</span>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christopher Leon | Academic Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --sidebar-color: #2c3e50;
+            --accent-color: #3498db;
+            --card-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+            background: var(--bg-gradient);
+            color: #333;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            width: 300px;
+            background: var(--sidebar-color);
+            color: white;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 200px;
+            height: 250px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid rgba(255,255,255,0.2);
+        }
+
+        .sidebar h1 {
+            font-size: 1.5rem;
+            margin: 10px 0 5px 0;
+        }
+
+        .sidebar p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 8px;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.1);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-color);
+        }
+
+        /* Right Content Area */
+        .main-content {
+            margin-left: 340px; /* Sidebar width + gap */
+            padding: 40px;
+            flex-grow: 1;
+            max-width: 800px;
+        }
+
+        /* Top Navigation Tabs */
+        nav {
+            margin-bottom: 40px;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--sidebar-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            border-bottom: 2px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        /* Content Sections */
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            backdrop-filter: blur(5px);
+            line-height: 1.7;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: var(--sidebar-color);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        /* Responsive for mobile */
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .sidebar { position: relative; width: 100%; height: auto; box-sizing: border-box; }
+            .main-content { margin-left: 0; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <img src="1000145441.jpg" alt="Profile" class="profile-pic">
+        
+        <h1>Christopher Leon</h1>
+        <p>Staff Scientist<br>Los Alamos National Laboratory</p>
+
+        <div class="social-links">
+            <a href="https://scholar.google.com/citations?user=dfMIYSwAAAAJ&hl=en&oi=sra" target="_blank">
+                <i class="fas fa-graduation-cap"></i> Google Scholar
+            </a>
+            <a href="https://orcid.org/0000-0002-9541-3013" target="_blank">
+                <i class="fab fa-orcid"></i> ORCID
+            </a>
+            <a href="https://github.com" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/christopher-leon-ph-d/" target="_blank">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="research.html">Research</a>
+            <a href="publications.html">Publications</a>
+        </nav>
+
+        <section class="card">
+            <h2>Biography</h2>
+            <p>
+                I am a scientist at Los Alamos National Laboratory (LANL) working on applying ML/AI to particle accelerators. 
+                My research interests currently include physics-constrained machine learning, ML surrogate models and Bayesian optimization for acclerators.
+            </p>
+            <p>
+                Before joining LANL, I earned my Master's and Ph.D. degrees from Florida International Univeristy, where I worked in theoretical nuclear physics. 
+            </p>
+
+            
+        </section>
+    </main>
+
+</body>
+</html>

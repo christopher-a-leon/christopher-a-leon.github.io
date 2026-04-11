@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | Christopher Leon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* [COPY OF YOUR CSS FROM INDEX.HTML] */
+        :root { --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); --sidebar-color: #2c3e50; --accent-color: #3498db; --card-bg: rgba(255, 255, 255, 0.9); }
+        body { font-family: 'Inter', -apple-system, sans-serif; margin: 0; display: flex; min-height: 100vh; background: var(--bg-gradient); color: #333; }
+        .sidebar { width: 300px; background: var(--sidebar-color); color: white; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; position: fixed; height: 100vh; text-align: center; }
+        .profile-pic { width: 200px; height: 250px; border-radius: 12px; object-fit: cover; margin-bottom: 20px; border: 3px solid rgba(255,255,255,0.2); }
+        .sidebar h1 { font-size: 1.5rem; margin: 10px 0 5px 0; }
+        .sidebar p { font-size: 0.9rem; opacity: 0.8; margin-bottom: 25px; }
+        .social-links { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+        .social-links a { color: white; text-decoration: none; font-size: 0.9rem; padding: 8px; border-radius: 6px; background: rgba(255,255,255,0.1); transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .social-links a:hover { background: var(--accent-color); }
+        .main-content { margin-left: 340px; padding: 40px; flex-grow: 1; max-width: 800px; }
+        nav { margin-bottom: 40px; display: flex; gap: 30px; }
+        nav a { text-decoration: none; color: var(--sidebar-color); font-weight: 600; font-size: 1.1rem; padding-bottom: 5px; border-bottom: 2px solid transparent; transition: 0.3s; }
+        nav a:hover, nav a.active { border-bottom: 2px solid var(--accent-color); color: var(--accent-color); }
+        .card { background: var(--card-bg); padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); backdrop-filter: blur(5px); line-height: 1.7; margin-bottom: 20px; }
+        h2 { margin-top: 0; color: var(--sidebar-color); border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        
+        /* Research specific styles */
+        .project-tag { display: inline-block; background: var(--accent-color); color: white; padding: 2px 10px; border-radius: 15px; font-size: 0.8rem; margin-bottom: 10px; }
+        @media (max-width: 768px) { body { flex-direction: column; } .sidebar { position: relative; width: 100%; height: auto; box-sizing: border-box; } .main-content { margin-left: 0; padding: 20px; } }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <aside class="sidebar">
+        <img src="1000145441.jpg" alt="Profile" class="profile-pic">
+        <h1>Christopher Leon</h1>
+        <p>Staff Scientist<br>Los Alamos National Laboratory</p>
+        <div class="social-links">
+            <a href="https://scholar.google.com/citations?user=dfMIYSwAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+            <a href="https://orcid.org/0000-0002-9541-3013" target="_blank"><i class="fab fa-orcid"></i> ORCID</a>
+            <a href="https://github.com" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/christopher-leon-ph-d/" target="_blank">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="research.html" class="active">Research</a>
+            <a href="publications.html">Publications</a>
+        </nav>
+
+        <section class="card">
+            <h2>Current Research</h2>
+
+
+            <div style="margin-bottom: 30px;">
+                <h3>Physics-Constrained Machine Learning</h3>
+                <p>While machine learning algorithms can do ok near data they've been trained on, far away from that they can fail spectacularly. So, in order to improve their generalizability, we can impose physics constraints into them. This also can improve our trust in their outputs since 
+                 we can say <i>'Hey, at the very least, the model's answer isn't breaking the laws of physics!'</i>.</p>
+
+                 <p>An example of how this can be implemented is to consider trying to get electromagnetic fields, \(\mathbf{E}\) and \(\mathbf{B}\). Rather than having an ML model predict them directly, have it instead output the scalar and vector potentials, \(\phi\) and \(\mathbf{A}\). You automatically get Gauss' law for magnetism since: \[  \mathbf{\nabla} \cdot  \mathbf{B} =  \mathbf{\nabla} \cdot (\nabla \times \mathbf{A}) = 0.\] You also get Faraday's law (exercise left for the reader). My colleagues and I <a href="https://pubs.aip.org/aip/pop/article/31/1/012101/2932188/Solving-the-Orszag-Tang-vortex">applied this idea (and other constraints) to the case of magnetohydrodynamics</a> and found these constraints helped the models.
+                 </p>
+
+                 <p>Using potentials, though, introduces the issue of gauge choice and requires you to model 4 fields. However, we can bypass the gauge issue by focusing on the physical degrees of freedom in the potentials. Not only can you reduce the 
+                 fields needing modelling down to 2, but you also pick up additional Maxwell's equations! It's convenient to do this in Fourier space, and thus we developed the <a href="https://www.nature.com/articles/s41598-024-65650-9">FoHM-NO (Fourier-Helmholtz-Maxwell Neural Operator)</a>, whose outline you can see below. We applied it for getting the EM fields produced by an electron beam in a  solenoid.
+                 </p>
+
+                 <figure style="text-align: center; margin: 20px 0;">
+                    <img src="41598_2024_65650_Fig1_HTML.webp" 
+                        alt="FoHM-NO Architecture Diagram" 
+                        style="max-width: 100%; height: auto; border-radius: 8px;">
+                    <figcaption style="font-size: 0.9em; color: #555; margin-top: 10px;">
+                        <em>Figure 1: Schematic outline of the FoHM-NO architecture.
+                            Reference: Leon, Christopher, and Alexander Scheinker.<a href="https://www.nature.com/articles/s41598-024-65650-9"> "Physics-constrained machine learning for electrodynamics without gauge ambiguity based on Fourier transformed Maxwell’s equations."</a> Scientific Reports 14.1 (2024): 14809.
+                        </em>
+                    </figcaption>
+                 </figure>
+
+                 <p>
+                    The above focused on hard constraints, which are automatically satisfied. Cooking them up often takes some work. Alternatively, it's much easier to put soft constraints where ML models are encouraged to satisfy a physics constraint, particularly a partial differential equation. This is usually done by adding a term in the loss function and is the idea behind Physics-Informed Neural Networks (PINNs). 
+                    If the physics of the problem is known, this can act as an effective regularizer. Now, for real problems, you can also have a term loss function to fit data. The problem is these two terms fight one another. Also, due to uncertainties, you don't want to overfit the data. Hence, after the data fit is 'good enough', you might want to focus following the physics, with the data fit term only turning on again if it starts to get bad. This is what we did in <a href="https://proceedings.mlr.press/v283/williams25a.html">this paper</a>. 
+                 </p>
+            </div>
+
+            <div style="margin-bottom: 30px;">
+                <h3>ML Surrogate Models</h3>
+                <p>In physics in general and accelerators in particular, our simulations can be quite computationally demanding. This can make certain tasks, like using them to tune an accelerator in real time, unfeasible.</p>
+
+                Much effort has been made by Silicon Valley to make ML models run fast on GPUs, so why not take advantage of that? Train a surrogate ML model. Yes, the ML answer won't be as accurate as the simulation. But if you're in a situation where a quick approximation is better than an extremely slow exact answer, it's worth it.
+                The surrogate doesn't even need to replace the simulation in some cases, just complement it. For example, if you're optimizing you can begin with a wide search of parameter space using the surrogate, then do a finer search on a promising region using the slower-but-more-accurate simulation. 
+            
+                <p> One particular case of interest in accelerator physics is coherent synchrotron radiation (CSR). Electrons in a bunch undergoing circular motion emit synchrotron radiation. When the wavelength is much greater than the bunch length, \(\lambda \gg L\), the bunch looks point-like as far as the radiation is concerned. Hence, all the radiation can be seen as emitted from a single point and sums up coherently. Because of this coherence, radiation emitted by the tail and absorbed by the head, for example, can have quite a significant effect. 
+                    Calculating the effect of CSR is vital since it increases the size of the electron bunch, which is undesirable. It is also extremely compuationally expensive, which makes it a  very good case for a surrogate ML model. 
+                </p>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="CSR.png" 
+                        alt="CSR" 
+                        style="max-width: 80%; height: auto; border-radius: 8px;">
+                    <figcaption style="font-size: 0.9em; color: #555; margin-top: 10px;">
+                        <em>Figure 2: Schematic outline of Coherent Synchrotron Radiation.
+                            Reference: Leon, Christopher, et al. <a href="https://journals.aps.org/prab/abstract/10.1103/2v1x-c97j">"Using convolutional neural networks to accelerate three-dimensional coherent synchrotron radiation computations."</a> Physical Review Accelerators and Beams 28.11 (2025): 110701.
+                        </em>
+                    </figcaption>
+                </figure>
+                <p>
+                    My colleagues and I developed surrogate ML models for 3D CSR calculations and found we can speed things up by a factor of ~3,000. The models were able to generalize, though they eventually failed when the beam became far smaller than what they were trained on.
+                </p>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="wake_pred.png" 
+                            alt="Wake predictions" 
+                            style="max-width: 70%; height: auto; border-radius: 8px;">
+                        <figcaption style="font-size: 0.9em; color: #555; margin-top: 10px;">
+                            <em>Figure 3: Example of wake true wakes, ML predictions, and absolute error.
+                                Reference: Leon, Christopher, et al. <a href="https://journals.aps.org/prab/abstract/10.1103/2v1x-c97j">"Using convolutional neural networks to accelerate three-dimensional coherent synchrotron radiation computations."</a> Physical Review Accelerators and Beams 28.11 (2025): 110701.
+                            </em>
+                        </figcaption>
+                </figure>
+            </div>
+
+            <div style="margin-bottom: 30px;">
+                <h3>Bayesian Optimization for Accelerators</h3>
+                <p> Optimizing under uncertainty describes much of accelerator operations. Unlike theoretical models, real-world machines are subject to thermal drifts, mechanical vibrations, sensor noise, etc. This means we never have a perfectly clear picture of the acclerator or beam. 
+                    By using Bayesian Optimization, we can treat these uncertainties as part of the model itself. This allows us to find the most efficient operating points while safely accounting for the 'fuzziness' of our experimental data  </p>
+            </div>
+            
+
+            <h2>Other Research</h2>
+            <h3>High \(x\) quarks</h3>
+            In another life, I worked in theoretical nuclear physics, looking at quarks and gluons (partons) inside the proton.  
+            Occasionally, a single quark can carry a large momentum fraction, called Bjorken \(x\), of the proton. My primary work involved finding out how this can possibly be. 
+            To do this, we had to first try to model the proton. With the scales involved, this requires working with both quantum mechanics and special relativity. 
+            
+            <p>The particular framework that many have found useful for describing the dynamics of partons bound inside the proton is <a href="https://en.wikipedia.org/wiki/Light_front_quantization">light-front quantization</a>. 
+            In everyday life where speeds are much less than the speed of light, \(v \ll c\), an object's trajectory in space-time runs pretty much in the \(t\) direction and it makes sense to use that as that coordinate to describe things. We can consider slicing up space-time in terms of constant \(t\), a 'foliation' if you want to sound more mathematically fancy.           
+            However, at higher energies where a particle is travelling near the speed of light, it begins to become a little awkward using that direction.
+            So, if a particle was near light speed in the negative \(z\) direction, its trajectory then almost aligns with the \(x^+=t-z\) direction (in units where \(c=1)\). We call this 'light-front time'. 
+            Quantum mechanics had been formulated exclusively using the time coordinate, specifically imposing commutation relations at equal \(t\), until Dirac discovered the light-front formalism in the 1940's. There, the commutation relations are at equal \(x^+\). Its usefulness for hadronic physics and quantum chromodynamics was realized only much later. 
+            </p>
+            <p>Using this framework, we treated the proton as a valence core of 3 quarks surrounded by a residual structure, the latter of which can include sea quarks, gluons, a pion cloud, etc. We the parameters of our model by looking at experimentally-extracted parton distribution functions.
+            </p>
+        </section>
+    </main>
+</body>
+</html>
